@@ -1,0 +1,14 @@
+# Controlled password-strength testing (authorized lab)
+hydra -t 4 -l admin -x 3:3:a ssh://127.0.0.1
+
+# Switch to root (authorized)
+sudo -i
+
+# Permission changes for demonstration purposes
+chmod o+rx /home/admin
+chmod o+rx /home/admin/Desktop
+chmod o+rx /home/admin/Desktop/Secret_Project
+chmod o+r /home/admin/Desktop/Secret_Project/Project_Report.txt
+
+# Access file as standard user
+cat /home/admin/Desktop/Secret_Project/Project_Report.txt
